@@ -21,7 +21,7 @@ export class StatusBar extends DrawableObject {
      * @param {number} percentage_ - Initial percentage value of the status bar.
      */
     constructor(x_, y_, imgStatusbar_, percentage_){
-        super(x_, y_, 45, 170);
+        super(x_, y_, 45, 158);
         this.imgStatusbar = imgStatusbar_;
         this.percentage = percentage_;
         this.loadImages(imgStatusbar_);
