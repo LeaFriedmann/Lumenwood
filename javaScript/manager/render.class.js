@@ -28,4 +28,9 @@ export class Render {
         Ref.levelInfo.innerText = "";
         Ref.levelInfo.innerText = "Level: " + Level.currentLevel;
     }
+
+    static styleSoundBtn(){
+        !AudioHub.TOGGLE_SOUND ? Ref.btnMute.classList.remove('soundOn') : Ref.btnMute.classList.remove('soundMuted');
+        !AudioHub.TOGGLE_SOUND ? Ref.btnMute.classList.add('soundMuted') : Ref.btnMute.classList.add('soundOn');
+    }
 }

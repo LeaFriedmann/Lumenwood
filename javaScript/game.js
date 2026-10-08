@@ -17,7 +17,7 @@ export class StartGame {
         Listener.checkOrientation();
         AudioHub.getFromLocl();
         Render.currentLvl();
-        Render.btnSound();
+        Render.styleSoundBtn();
         Listener.clickKeyDown();
         Listener.clickKeyUp();
         Listener.clickStartGame();

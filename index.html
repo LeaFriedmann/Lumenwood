@@ -21,9 +21,11 @@
                     <!-- btns top -->
                     <div id="btnsTop" class="btnsTopStyle">
                         <div id="wrprTopBtns">
-                            <button id="btnInfo" class="btnsStyle">Info</button>
-                            <p id="level" class="levelStyle"></p>
-                            <button id="btnMute" class="btnMuteStyle btnsStyle"></button>
+                            <button id="btnInfo" class="btnsStyle btnInfoStyle">Info</button>
+                            <div class="levelStyle">
+                                <p id="level"></p>
+                            </div>
+                            <button id="btnMute" class="btnMuteStyle btnsStyle soundMuted"></button>
                         </div>
                         <div id="btnStartWrpr" class="btnStartWrprStyle">
                             <button id="btnStartGame" class="btnStartGameStyle btnsStyle">Start Game</button>
@@ -34,27 +36,27 @@
                         <section id="btnsPostGame" class="btnsPostGameStyle hide">
                             <button id="btnRestart" class="btnRestartStyle btnsStyle">Restart</button>
                             <button id="btnNextLvl" class="btnNextLvlStyle btnsStyle">Next Level</button>
-                            <button id="btnHome" class="btnHomeStyle btnsStyle">Homescreen</button>
+                            <button id="btnHome" class="btnHomeStyle btnsStyle">Home</button>
                         </section>
-                        <section id="sectImpressum" class="wrprImpressum btnsPostGameStyle">
+                        <section id="sectImpressum" class="wrprImpressum">
                             <button class="btnsStyle btnImpessum"><a href="html/impressum.html" target="_blank">Impressum</a></button>
                         </section>
                         <!-- btns mobile -->
                         <section id="mobileBtns" class="mobileBtnsStyle hide">
                             <div class="btnSect">
                                 <button id="btnLeft" class="btnLeftStyle btnsStyle">
-                                    <img src="./img/icons/arrow-left.png" alt="Button left" />
+                                    <img src="./img/buttons/mobile-btn-left.png" alt="Button left" />
                                 </button>
                                 <button id="btnRight" class="btnRightStyle btnsStyle">
-                                    <img src="./img/icons/arrow-right.png" alt="Button right" />
+                                    <img src="./img/buttons/mobile-btn-right.png" alt="Button right" />
                                 </button>
                             </div>
                             <div class="btnSect">
                                 <button id="btnJump" class="btnJumpStyle btnsStyle">
-                                    <img src="./img/icons/arrow-up.png" alt="button jump" />
+                                    <img src="./img/buttons/mobile-btn-jump.png" alt="button jump" />
                                 </button>
                                 <button id="btnThrow" class="btnThrowStyle btnsStyle">
-                                    <img src="./img/acorn/acorn-btn.png" alt="button throw" />
+                                    <img src="./img/buttons/mobile-btn-acorn.png" alt="button throw" />
                                 </button>
                             </div>
                         </section>
@@ -64,27 +66,31 @@
             <!-- dialog game info -->
             <dialog id="gameInfo" closedby="any">
                 <div class="wrprDialog">
-                    <section id="wrprBtnClose">
-                        <button id="btnClose"><img src="./img/icons/close-btn.png" alt="button close dialog"></button>
-                    </section>
-                    <section>
-                        <h2>How to play:</h2>
-                        <p>
-                            Collect bottles throughout the level. <br />
-                            You can throw bottles at chickens to defeat them. Chickens can also be defeated by jumping on them. <br />
-                            Be careful not to waste all your bottles — you will need them later to defeat the final boss. The boss can only
-                            be defeated by throwing bottles at him.
-                        </p>
-                    </section>
-                    <section id="infoControls">
-                        <h2>Controls:</h2>
-                        <p>
-                            Arrow Up: Jump <br />
-                            Arrow Left: Move left <br />
-                            Arrow Right: Move right <br />
-                            Press D to throw bottles.
-                        </p>
-                    </section>
+                    <div class="padding-wrapper">
+                        <div class="info-content">
+                            <section id="wrprBtnClose">
+                                <button id="btnClose"><img src="./img/icons/close-btn.png" alt="button close dialog"></button>
+                            </section>
+                            <section>
+                                <h2>How to play:</h2>
+                                <p>
+                                    Collect bottles throughout the level. <br />
+                                    You can throw bottles at chickens to defeat them. Chickens can also be defeated by jumping on them. <br />
+                                    Be careful not to waste all your bottles — you will need them later to defeat the final boss. The boss can only
+                                    be defeated by throwing bottles at him.
+                                </p>
+                            </section>
+                            <section id="infoControls">
+                                <h2>Controls:</h2>
+                                <p>
+                                    Arrow Up: Jump <br />
+                                    Arrow Left: Move left <br />
+                                    Arrow Right: Move right <br />
+                                    Press D to throw bottles.
+                                </p>
+                            </section>
+                        </div>
+                    </div>
                 </div>
             </dialog>
         </main>
