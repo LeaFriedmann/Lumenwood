@@ -33,6 +33,7 @@ export class StartGame {
         Listener.restartAudio();
         Listener.disableCntxtMenu();
         Listener.playBackgrMusic();
+        Listener.resetAttackAudioEndboss();
         Listener.openInfo();
         Listener.closeInfo();
     }

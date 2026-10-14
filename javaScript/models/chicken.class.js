@@ -18,6 +18,7 @@ export class Chicken extends Entity {
         left: 1,
     };
     audioPlayed = false;
+    mumbelingAudio;
     //#endregion
 
     /**
@@ -35,6 +36,7 @@ export class Chicken extends Entity {
 
         IntervalHub.startInterval(this.animate, 1000 / 60);
         IntervalHub.startInterval(this.move, 1000 / 25);
+        IntervalHub.startInterval(this.stopAudio, 1000 / 60);
     }
 
     /**
@@ -63,4 +65,25 @@ export class Chicken extends Entity {
             this.moveLeft();
         }
     };
+
+    startAudio () {
+        if (!this.mumbelingAudio.isPlaying && !this.isDead() && this.x > 0) {
+            AudioHub.playOne(this.mumbelingAudio);              
+            AudioHub.allSounds.push(this.mumbelingAudio);
+        }
+    }
+
+    stopAudio = () => {
+        if ((this.isDead() && this.mumbelingAudio.isPlaying) || this.x < 0) {            
+            AudioHub.stopOne(this.mumbelingAudio);
+            this.removeAudio(AudioHub.allSounds, this.mumbelingAudio);            
+        }
+    }
+
+    removeAudio (arr, audio) {
+        const index = arr.indexOf(audio);
+        if (index > -1) {
+            arr.splice(index, 1);
+        }
+    }
 }

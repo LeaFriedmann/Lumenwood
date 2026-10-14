@@ -271,6 +271,12 @@ export class Listener {
         });
     }
 
+    static resetAttackAudioEndboss(){
+        AudioHub.ENDBOSS_ATTACK.file.addEventListener("ended", () => {
+            AudioHub.ENDBOSS_ATTACK.isPlaying = false;
+        })
+    }
+
     //#endregion
 
     //#region fit-device

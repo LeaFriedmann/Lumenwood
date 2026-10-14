@@ -106,9 +106,11 @@ export class GameState extends DrawableObject {
     static showOutro() {
         if (GameState.WON) {
             GameState.outro = GameState.wonOutro();
+            AudioHub.playOne(AudioHub.VICTORY);
             Ref.showElement(Ref.btnNextLvl);
         } else if (GameState.LOST) {
             GameState.outro = GameState.lostOutro();
+            AudioHub.playOne(AudioHub.DEFEAT);
             Ref.hideElement(Ref.btnNextLvl);
         }
 
@@ -138,9 +140,7 @@ export class GameState extends DrawableObject {
 
         Ref.btnInvisible(Ref.btnInfo);
 
-        AudioHub.playOne(AudioHub.BACKGROUND_MUSIC);
-        AudioHub.toggleSound();
-        AudioHub.toggleSound();
+        // AudioHub.playOne(AudioHub.BACKGROUND_MUSIC);
 
         world.push(new World(Ref.canvas, new Level(Level.currentLevel)));
 

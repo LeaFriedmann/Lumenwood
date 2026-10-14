@@ -53,6 +53,7 @@ export class World {
 
         IntervalHub.startInterval(this.checkCollisions, 1000 / 60);
         IntervalHub.startInterval(this.checkThrowObjects, 1000 / 25);
+        IntervalHub.startInterval(this.startEnemyAudio, 1000 / 25)
     }
 
     //#region methods
@@ -67,6 +68,7 @@ export class World {
         this.collisionCharacter();
         this.collisionBottle();
         this.checkCollecktables();
+        this.startEnemyAudio();
     };
 
     /**
@@ -189,7 +191,7 @@ export class World {
             } else {
                 this.addThrowableObject("right");
             }
-
+            AudioHub.playOne(AudioHub.THROW);
             CollectableBottle.collected--;
 
             this.statusbarBottle.setPercentage(CollectableBottle.collected * 10);
@@ -212,6 +214,14 @@ export class World {
      */
     addThrowableObject(direction) {
         Level.ThrowableObjects.push(new ThrowableObject(this.character.rX, this.character.rY, direction));
+    }
+    
+    startEnemyAudio = () => {
+        Level.enemies.forEach(enemy => {
+            if (enemy.x - this.character.x < 600 && this.killableByJump(enemy)) {
+                enemy.startAudio();
+            }
+        });
     }
 
     //#region methods draw

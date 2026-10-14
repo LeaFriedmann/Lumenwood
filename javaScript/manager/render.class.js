@@ -11,7 +11,7 @@ export class Render {
      * Updates the mute/unmute button UI based on the current audio state.
      */
     static btnSound() {
-        if (AudioHub.TOGGLE_SOUND) {
+        if (AudioHub.SOUND_ON) {
             Ref.btnMute.innerHTML = "";
             Ref.btnMute.innerHTML = Template.soundBtn();
         } else {
@@ -30,7 +30,7 @@ export class Render {
     }
 
     static styleSoundBtn(){
-        !AudioHub.TOGGLE_SOUND ? Ref.btnMute.classList.remove('soundOn') : Ref.btnMute.classList.remove('soundMuted');
-        !AudioHub.TOGGLE_SOUND ? Ref.btnMute.classList.add('soundMuted') : Ref.btnMute.classList.add('soundOn');
+        !AudioHub.SOUND_ON ? Ref.btnMute.classList.remove('soundOn') : Ref.btnMute.classList.remove('soundMuted');
+        !AudioHub.SOUND_ON ? Ref.btnMute.classList.add('soundMuted') : Ref.btnMute.classList.add('soundOn');
     }
 }

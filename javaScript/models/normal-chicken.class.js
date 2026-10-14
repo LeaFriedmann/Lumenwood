@@ -1,3 +1,4 @@
+import { MyAudio } from "../manager/audio-hub.clas.js";
 import { ImgHub } from "../manager/imgHub.class.js";
 import { Chicken } from "./chicken.class.js";
 
@@ -5,12 +6,15 @@ import { Chicken } from "./chicken.class.js";
  * Represents a normal-sized chicken enemy.
  */
 export class NormalChicken extends Chicken {
+
+    mumbelingAudio = new MyAudio("./sounds/chicken/mushroom-mumbeling-1.mp3", 1, -0.12, true);
+
     /**
      * Creates a NormalChicken instance.
      * @param {number} x_ - Initial x position of the chicken.
      * @param {number} speed_ - Movement speed of the chicken.
      */
     constructor(x_, speed_) {
-        super(x_, 360, 60, 60, speed_, ImgHub.ENEMIES.CHICKEN_NORMAL.WALK, ImgHub.ENEMIES.CHICKEN_NORMAL.DEAD);
+        super(x_, 360, 60, 60, speed_, ImgHub.ENEMIES.CHICKEN_SMALL.WALK, ImgHub.ENEMIES.CHICKEN_SMALL.DEAD); 
     }
 }

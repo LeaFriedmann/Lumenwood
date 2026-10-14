@@ -59,6 +59,11 @@ export class Endboss extends Entity {
     move = () => {
         if (Endboss.startWalking && !Endboss.attack && !this.isDead() && !this.isHurt()) {
             this.moveLeft();
+            if (!AudioHub.ENDBOSS_WALK.isPlaying) {
+                AudioHub.playOne(AudioHub.ENDBOSS_WALK);
+            }
+        } else {
+            AudioHub.stopOne(AudioHub.ENDBOSS_WALK);
         }
     };
 
@@ -68,15 +73,18 @@ export class Endboss extends Entity {
     animate = () => {
         if (this.isHurt()) {
             this.playAnimation("hurt", this.animationHurt, 10);
-
             if (!AudioHub.ENDBOSS_HURT.isPlaying) {
                 AudioHub.playOne(AudioHub.ENDBOSS_HURT);
             }
         } else if (Endboss.attack) {
             this.playAnimation("attack", this.animationAtack, 10);
+            if (!AudioHub.ENDBOSS_ATTACK.isPlaying) {
+            AudioHub.playOne(AudioHub.ENDBOSS_ATTACK);
+            }
         } else if (this.isDead()) {
             if (!this.deadAnimationStop(1250)) {
                 this.playAnimation("dead", this.animationDead, 10);
+                if (!AudioHub.ENDBOSS_DEAD.isPlaying) AudioHub.playOne(AudioHub.ENDBOSS_DEAD);
             } else {
                 IntervalHub.stopAllIntervals();
                 GameState.WON = true;

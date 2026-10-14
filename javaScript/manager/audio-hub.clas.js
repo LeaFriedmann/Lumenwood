@@ -1,7 +1,7 @@
 /**
  * Wrapper class for handling Audio playback with additional metadata.
  */
-class MyAudio {
+export class MyAudio {
     file;
     isLoaded = false;
     isPlaying = false;
@@ -13,10 +13,11 @@ class MyAudio {
      * @param {number} playbackRate_ - Playback speed of the audio.
      * @param {number} changeVol_ - Additional volume offset for this sound.
      */
-    constructor(file_, playbackRate_, changeVol_) {
+    constructor(file_, playbackRate_, changeVol_, loop_ = false) {
         this.file = new Audio(file_);
         this.file.playbackRate = playbackRate_;
         this.changeVol = changeVol_;
+        this.file.loop = loop_;
     }
 }
 
@@ -26,33 +27,40 @@ class MyAudio {
 export class AudioHub {
     //#region properties
     static VOLUME = 0.2;
-    static TOGGLE_SOUND = true;
+    static SOUND_ON = true;
 
     //#region audios
     static CHARACTER = {
-        DAMAGE: new MyAudio("./sounds/character/characterDamage.mp3", 1, 0),
-        DEAD: new MyAudio("./sounds/character/characterDead.wav", 1, 0),
-        JUMP: new MyAudio("./sounds/character/characterJump.wav", 1, 0),
-        RUN: new MyAudio("./sounds/character/characterRun.mp3", 1.5, 0),
-        SNORING: new MyAudio("./sounds/character/characterSnoring.mp3", 1, 0),
+        DAMAGE: new MyAudio("./sounds/character/fox-hurt.mp3", 1.5, 0.2),
+        DEAD: new MyAudio("./sounds/character/fox-dead.opus", 1, 0.1),
+        JUMP: new MyAudio("./sounds/character/fox-jump.opus", 1, 0),
+        RUN: new MyAudio("./sounds/character/fox-run.mp3", 1, 0.7, true),
+        SNORING: new MyAudio("./sounds/character/fox-snoring.mp3", 1, 0.4),
     };
 
     static CHICKEN = {
-        DEAD: new MyAudio("./sounds/chicken/chickenDead.mp3", 1, 0),
-        DEAD2: new MyAudio("./sounds/chicken/chickenDead2.mp3", 1, 0),
+        DEAD: new MyAudio("./sounds/chicken/mushroom-dead.mp3", 1, 0),
+        DEAD2: new MyAudio("./sounds/chicken/mushroom-dead-2.mp3", 1, 0),
     };
 
     static COLLECT = {
-        BOTTLE: new MyAudio("./sounds/collectibles/bottleCollectSound.wav", 1, 0),
-        COIN: new MyAudio("./sounds/collectibles/collectSound.wav", 1, 0),
+        BOTTLE: new MyAudio("./sounds/collectibles/acorn-collect.opus", 1, 0),
+        COIN: new MyAudio("./sounds/collectibles/firefly-collect.opus", 1, 0),
     };
 
-    static ENDBOSS_APPROACH = new MyAudio("./sounds/endboss/endbossApproach.wav", 1, 0.8);
-    static ENDBOSS_HURT = new MyAudio("./sounds/chicken/chickenDead2.mp3", 1, 0);
+    static ENDBOSS_APPROACH = new MyAudio("./sounds/endboss/endboss-alert.opus", 1, 0.8);
+    static ENDBOSS_HURT = new MyAudio("./sounds/endboss/endboss-hurt.opus", 1, 0);
+    static ENDBOSS_WALK = new MyAudio("./sounds/endboss/endboss-walk-loop-long.mp3", 1, -0.05, true);
+    static ENDBOSS_DEAD = new MyAudio("./sounds/endboss/endboss-dead.mp3", 1, 0);
+    static ENDBOSS_ATTACK = new MyAudio("./sounds/endboss/endboss-attack.mp3", 1.2, 0);
 
-    static GAME_START = new MyAudio("./sounds/game/gameStart.mp3", 1, 0);
-    static BOTTLE_BREAK = new MyAudio("./sounds/throwable/bottleBreak.mp3", 1, 0);
+    static BOTTLE_BREAK = new MyAudio("./sounds/throwable/acorn-explode.opus", 1, 0);
+    static THROW = new MyAudio("./sounds/throwable/throw.opus", 1, 0);
+
+    static GAME_START = new MyAudio("./sounds/game/game-start.opus", 1, 0);
     static BACKGROUND_MUSIC = new MyAudio("./sounds/background-music/background-music.mp3", 1, -0.15);
+    static VICTORY = new MyAudio("./sounds/game/victory.opus", 1, 0);
+    static DEFEAT = new MyAudio("./sounds/game/defeat.opus", 1, 0);
 
     static allSounds = [
         AudioHub.CHARACTER.DAMAGE,
@@ -60,37 +68,56 @@ export class AudioHub {
         AudioHub.CHARACTER.JUMP,
         AudioHub.CHARACTER.RUN,
         AudioHub.CHARACTER.SNORING,
+
         AudioHub.CHICKEN.DEAD,
         AudioHub.CHICKEN.DEAD2,
+
         AudioHub.COLLECT.COIN,
         AudioHub.COLLECT.BOTTLE,
+
         AudioHub.ENDBOSS_APPROACH,
-        AudioHub.GAME_START,
+        AudioHub.ENDBOSS_WALK,
+        AudioHub.ENDBOSS_DEAD,
+        AudioHub.ENDBOSS_HURT,
+        AudioHub.ENDBOSS_ATTACK,
+
+        AudioHub.THROW,
         AudioHub.BOTTLE_BREAK,
+
+        AudioHub.GAME_START,
         this.BACKGROUND_MUSIC,
     ];
     //#endregion
     //#endregion
 
+    constructor(){
+        AudioHub.getFromLocl();
+    }
     //#region methods
 
     /**
      * Plays a given sound from the beginning.
      * @param {MyAudio} sound - The sound instance to play.
      */
-    static playOne(sound) {
+    static async playOne(sound) {
+
         sound.isPlaying = true;
-        sound.file.currentTime = 0;
+        sound.file.volume = AudioHub.SOUND_ON ? AudioHub.VOLUME + sound.changeVol :  0;
+        
+        try {
+            if (sound.file.readyState === 0) {
+                await new Promise((resolve, reject) => {
+                    sound.file.addEventListener("canplay", resolve, { once: true });
+                    sound.file.addEventListener("error", reject, { once: true });
+                });
+            }
 
-        if (AudioHub.TOGGLE_SOUND) {
-            sound.file.volume = AudioHub.VOLUME + sound.changeVol;
-        } else {
-            sound.file.volume = AudioHub.VOLUME;
-        }
+            sound.file.currentTime = 0;
+            await sound.file.play();
 
-        if (sound.file.readyState > 0 || sound.isLoaded) {
-            sound.isLoaded = true;
-            sound.file.play();
+        } catch (error) {
+            sound.isPlaying = false;
+            console.error("Audio konnte nicht abgespielt werden:", error);
         }
     }
 
@@ -117,9 +144,9 @@ export class AudioHub {
      * Toggles global sound on or off and updates all volumes accordingly.
      */
     static toggleSound() {
-        AudioHub.TOGGLE_SOUND = !AudioHub.TOGGLE_SOUND;
+        AudioHub.SOUND_ON = !AudioHub.SOUND_ON;
 
-        if (AudioHub.TOGGLE_SOUND) {
+        if (AudioHub.SOUND_ON) {
             AudioHub.VOLUME = 0.2;
 
             AudioHub.allSounds.forEach((sound) => {
@@ -142,17 +169,17 @@ export class AudioHub {
      * Saves the current sound toggle state to localStorage.
      */
     static toLoclStrg() {
-        localStorage.setItem("TOGGLE_SOUND", JSON.stringify(AudioHub.TOGGLE_SOUND));
+        localStorage.setItem("SOUND_ON", JSON.stringify(AudioHub.SOUND_ON));
     }
 
     /**
      * Loads the sound toggle state from localStorage.
      */
     static getFromLocl() {
-        const backFrLocal = JSON.parse(localStorage.getItem("TOGGLE_SOUND"));
+        const backFrLocal = JSON.parse(localStorage.getItem("SOUND_ON"));
 
         if (backFrLocal != null) {
-            AudioHub.TOGGLE_SOUND = backFrLocal;
+            AudioHub.SOUND_ON = backFrLocal;
         }
     }
 
