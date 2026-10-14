@@ -273,8 +273,8 @@ export class World {
 
         // this.addToMap(Level.endboss);
         this.addToMap(this.character);
-        this.addObjectsToMap(Level.enemies);
         this.addObjectsToMap(CollectableObject.arrAll);
+        this.addObjectsToMap(Level.enemies);
         this.addObjectsToMap(Level.ThrowableObjects);
     }
 
