@@ -389,4 +389,9 @@ h1 {
 
 #impressum {
     font-family: Arial, Helvetica, sans-serif;
+    color: white;
+
+    h2{
+        margin-bottom: 6px;
+    }
 }
