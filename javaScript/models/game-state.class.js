@@ -142,7 +142,7 @@ export class GameState extends DrawableObject {
 
         setTimeout(() => {
             AudioHub.playOne(AudioHub.BACKGROUND_MUSIC);
-        }, 500);
+        }, 1000);
 
         world.push(new World(Ref.canvas, new Level(Level.currentLevel)));
 
