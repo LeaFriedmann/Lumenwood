@@ -183,12 +183,12 @@ export class Level {
      * Creates and adds all enemy objects including chickens and the endboss.
      */
     addEnemies() {
-        for (let i = 0; i < this.levelConfig.repetition.chicken; i++) {
-            Level.enemies.push(this.createChicken());
-        }
-
         for (let i = 0; i < this.levelConfig.repetition.smallChicken; i++) {
             Level.enemies.push(this.createSmallChicken());
+        }
+        
+        for (let i = 0; i < this.levelConfig.repetition.chicken; i++) {
+            Level.enemies.push(this.createChicken());
         }
 
         const endboss = new Endboss(Level.END_X, this.levelConfig.speed.endboss, this.levelConfig.healthReduction.endboss);
