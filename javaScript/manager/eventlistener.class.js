@@ -172,6 +172,11 @@ export class Listener {
                 Listener.endFullscreen();
             }
 
+            if (GameState.WON) {
+                GameState.nextLvl();
+                Render.currentLvl();
+            }
+
             GameState.startscreen = true;
             GameState.gameReset();
             Ref.showElement(Ref.btnStart);
