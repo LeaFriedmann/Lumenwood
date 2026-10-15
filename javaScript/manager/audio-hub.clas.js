@@ -35,7 +35,7 @@ export class AudioHub {
         DEAD: new MyAudio("./sounds/character/fox-dead.opus", 1, 0.1),
         JUMP: new MyAudio("./sounds/character/fox-jump.mp3", 1, 0),
         RUN: new MyAudio("./sounds/character/fox-run.mp3", 1, 0.7, true),
-        SNORING: new MyAudio("./sounds/character/fox-sleep.mp3", 1, 0.7),
+        SNORING: new MyAudio("./sounds/character/fox-sleep.mp3", 1, 0.7, true),
     };
 
     static CHICKEN = {
@@ -58,7 +58,7 @@ export class AudioHub {
     static THROW = new MyAudio("./sounds/throwable/throw.opus", 1, 0);
 
     static GAME_START = new MyAudio("./sounds/game/game-start.opus", 1, 0);
-    static BACKGROUND_MUSIC = new MyAudio("./sounds/background-music/background-music-lumenwood.mp3", 1, -0.05);
+    static BACKGROUND_MUSIC = new MyAudio("./sounds/background-music/background-music-lumenwood.mp3", 1, -0.05, true);
     static VICTORY = new MyAudio("./sounds/game/victory.opus", 1, 0);
     static DEFEAT = new MyAudio("./sounds/game/defeat.opus", 1, 0);
 

@@ -231,15 +231,6 @@ export class Listener {
     //#region audio
 
     /**
-     * Resets snoring state when the audio track ends.
-     */
-    static endSnoring() {
-        AudioHub.CHARACTER.SNORING.file.addEventListener("ended", () => {
-            AudioHub.CHARACTER.SNORING.isPlaying = false;
-        });
-    }
-
-    /**
      * Toggles game audio mute state.
      */
     static muteAudio() {
@@ -264,15 +255,6 @@ export class Listener {
     static restartAudio() {
         Ref.btnRestart.addEventListener("click", () => {
             AudioHub.playOne(AudioHub.GAME_START);
-        });
-    }
-
-    /**
-     * Loops background music when it ends.
-     */
-    static playBackgrMusic() {
-        AudioHub.BACKGROUND_MUSIC.file.addEventListener("ended", () => {
-            AudioHub.playOne(AudioHub.BACKGROUND_MUSIC);
         });
     }
 

@@ -27,12 +27,10 @@ export class StartGame {
         Listener.addMobileBtn();
         Listener.btnsToucend();
         Listener.btnsTouchstart();
-        Listener.endSnoring();
         Listener.muteAudio();
         Listener.startGameAudio();
         Listener.restartAudio();
         Listener.disableCntxtMenu();
-        Listener.playBackgrMusic();
         Listener.resetAttackAudioEndboss();
         Listener.openInfo();
         Listener.closeInfo();
