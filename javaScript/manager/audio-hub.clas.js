@@ -33,9 +33,9 @@ export class AudioHub {
     static CHARACTER = {
         DAMAGE: new MyAudio("./sounds/character/fox-hurt.mp3", 1.5, 0.2),
         DEAD: new MyAudio("./sounds/character/fox-dead.opus", 1, 0.1),
-        JUMP: new MyAudio("./sounds/character/fox-jump.opus", 1, 0),
+        JUMP: new MyAudio("./sounds/character/fox-jump.mp3", 1, 0),
         RUN: new MyAudio("./sounds/character/fox-run.mp3", 1, 0.7, true),
-        SNORING: new MyAudio("./sounds/character/fox-snoring.mp3", 1, 0.4),
+        SNORING: new MyAudio("./sounds/character/fox-sleep.mp3", 1, 0.7),
     };
 
     static CHICKEN = {
