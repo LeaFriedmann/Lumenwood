@@ -58,7 +58,7 @@ export class AudioHub {
     static THROW = new MyAudio("./sounds/throwable/throw.opus", 1, 0);
 
     static GAME_START = new MyAudio("./sounds/game/game-start.opus", 1, 0);
-    static BACKGROUND_MUSIC = new MyAudio("./sounds/background-music/background-music.mp3", 1, -0.15);
+    static BACKGROUND_MUSIC = new MyAudio("./sounds/background-music/background-music-lumenwood.mp3", 1, -0.05);
     static VICTORY = new MyAudio("./sounds/game/victory.opus", 1, 0);
     static DEFEAT = new MyAudio("./sounds/game/defeat.opus", 1, 0);
 
