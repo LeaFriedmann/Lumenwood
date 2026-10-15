@@ -1,4 +1,4 @@
-import { MyAudio } from "../manager/audio-hub.clas.js";
+import { AudioHub, MyAudio } from "../manager/audio-hub.clas.js";
 import { ImgHub } from "../manager/imgHub.class.js";
 import { Chicken } from "./chicken.class.js";
 
@@ -8,6 +8,7 @@ import { Chicken } from "./chicken.class.js";
 export class NormalChicken extends Chicken {
 
     mumbelingAudio = new MyAudio("./sounds/chicken/mushroom-mumbeling-1.mp3", 1, -0.12, true);
+    deadAudio = AudioHub.CHICKEN.DEAD2;
 
     /**
      * Creates a NormalChicken instance.
@@ -15,6 +16,6 @@ export class NormalChicken extends Chicken {
      * @param {number} speed_ - Movement speed of the chicken.
      */
     constructor(x_, speed_) {
-        super(x_, 360, 60, 60, speed_, ImgHub.ENEMIES.CHICKEN_SMALL.WALK, ImgHub.ENEMIES.CHICKEN_SMALL.DEAD); 
+        super(x_, 358, 60, 69, speed_, ImgHub.ENEMIES.CHICKEN_NORMAL.WALK, ImgHub.ENEMIES.CHICKEN_NORMAL.DEAD); 
     }
 }

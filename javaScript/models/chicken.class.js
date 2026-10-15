@@ -19,6 +19,7 @@ export class Chicken extends Entity {
     };
     audioPlayed = false;
     mumbelingAudio;
+    deadAudio;
     //#endregion
 
     /**
@@ -44,9 +45,9 @@ export class Chicken extends Entity {
      */
     animate = () => {
         if (this.isDead()) {
-            this.playAnimation("dead", this.animationDead, 4);
+            this.playAnimation("dead", this.animationDead, 7);
             if (this.isDead && !this.audioPlayed) {
-                AudioHub.playOne(AudioHub.CHICKEN.DEAD);
+                AudioHub.playOne(this.deadAudio);
                 this.audioPlayed = true;
             }
             setTimeout(() => {

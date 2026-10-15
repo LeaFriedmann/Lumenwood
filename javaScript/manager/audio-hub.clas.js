@@ -39,8 +39,8 @@ export class AudioHub {
     };
 
     static CHICKEN = {
-        DEAD: new MyAudio("./sounds/chicken/mushroom-dead.mp3", 1, 0),
-        DEAD2: new MyAudio("./sounds/chicken/mushroom-dead-2.mp3", 1, 0),
+        DEAD: new MyAudio("./sounds/chicken/mushroom-dead.mp3", 1, 0.05),
+        DEAD2: new MyAudio("./sounds/chicken/mushroom-dead-3.mp3", 1, -0.1),
     };
 
     static COLLECT = {

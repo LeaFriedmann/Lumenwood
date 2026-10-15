@@ -70,18 +70,17 @@ export class ImgHub {
     static ENEMIES = {
         CHICKEN_NORMAL: {
             WALK: [
-                "./img/3_enemies_chicken/chicken_normal/1_walk/1_w.png",
-                "./img/3_enemies_chicken/chicken_normal/1_walk/2_w.png",
-                "./img/3_enemies_chicken/chicken_normal/1_walk/3_w.png",
+                "./img/enemies_mushrooms/walk-2/mushroom-walk-1.png",
+                "./img/enemies_mushrooms/walk-2/mushroom-walk-2.png",
             ],
-            DEAD: ["./img/3_enemies_chicken/chicken_normal/2_dead/dead.png"],
+            DEAD: ["./img/enemies_mushrooms/dead-2/dead 1.png", "./img/enemies_mushrooms/dead-2/dead 2.png", "./img/enemies_mushrooms/dead-2/dead 1.png", "./img/enemies_mushrooms/dead-2/dead 2.png", "./img/enemies_mushrooms/dead-2/dead 1.png", "./img/enemies_mushrooms/dead-2/dead 2.png"],
         },
         CHICKEN_SMALL: {
             WALK: [
-                "./img/enemies_mushrooms/mushroom/walk/mushroom-walk-1.png",
-                "./img/enemies_mushrooms/mushroom/walk/mushroom-walk-2.png",
+                "./img/enemies_mushrooms/walk/mushroom-walk-1.png",
+                "./img/enemies_mushrooms/walk/mushroom-walk-2.png",
             ],
-            DEAD: ["./img/enemies_mushrooms/dead/dead 1.png", "./img/enemies_mushrooms/dead/dead 2.png"],
+            DEAD: ["./img/enemies_mushrooms/dead/dead 1.png", "./img/enemies_mushrooms/dead/dead 1.png", "./img/enemies_mushrooms/dead/dead 2.png", "./img/enemies_mushrooms/dead/dead 2.png", "./img/enemies_mushrooms/dead/dead 2.png", "./img/enemies_mushrooms/dead/dead 2.png"],
         },
         ENDBOSS: {
             WALK: [
@@ -146,7 +145,7 @@ export class ImgHub {
         ],
         START: [
             "./img/background/start/background-1.png",
-            "./img/background/start/background-2.png",
+            "./img/background/back-2.jpg",
             "./img/background/start/background-3.png",
             "./img/background/start/background-4.png",
             "./img/background/start/background-5.png",

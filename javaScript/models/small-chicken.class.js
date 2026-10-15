@@ -1,4 +1,4 @@
-import { MyAudio } from "../manager/audio-hub.clas.js";
+import { AudioHub, MyAudio } from "../manager/audio-hub.clas.js";
 import { ImgHub } from "../manager/imgHub.class.js";
 import { Chicken } from "./chicken.class.js";
 
@@ -8,6 +8,7 @@ import { Chicken } from "./chicken.class.js";
 export class SmallChicken extends Chicken {
 
     mumbelingAudio = new MyAudio("./sounds/chicken/mushroom-mumbeling-2.mp3", 1, -0.12, true);
+    deadAudio = AudioHub.CHICKEN.DEAD;
 
     /**
      * Creates a SmallChicken instance.
