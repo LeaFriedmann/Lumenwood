@@ -1,110 +1,110 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon" />
-        <link rel="icon" href="./img/favicon.png" type="image/x-icon" />
-        <link rel="stylesheet" href="./style.css" />
-        <script type="module" src="./javaScript/game.js"></script>
-        <title>Lumenwood</title>
-    </head>
-    <body>
-        <main>
-            <h1 id="header" class="hide">LUMENWOOD</h1>
-            <p id="rotateMessage" class="hide">Please rotate your device to play.</p>
-            <div id="wrprCanvas" class="wrprCanvasStyle hide">
-                <!-- canvas -->
-                <canvas id="canvas" width="720" height="480"></canvas>
-                <!-- overlay -->
-                <section id="overlay" class="overlayStyle">
-                    <!-- btns top -->
-                    <div id="btnsTop" class="btnsTopStyle">
-                        <div id="wrprTopBtns">
-                            <button id="btnInfo" class="btnsStyle btnInfoStyle">Info</button>
-                            <div class="levelStyle">
-                                <p id="level"></p>
-                            </div>
-                            <button id="btnMute" class="btnMuteStyle btnsStyle soundMuted"></button>
-                        </div>
-                        <div id="btnStartWrpr" class="btnStartWrprStyle">
-                            <button id="btnStartGame" class="btnStartGameStyle btnsStyle">Start Game</button>
-                        </div>
-                    </div>
-                    <!-- btns bottom -->
-                    <div id="btnsBottom" class="btnsBottomStyle">
-                        <section id="btnsPostGame" class="btnsPostGameStyle hide">
-                            <button id="btnRestart" class="btnRestartStyle btnsStyle">Restart</button>
-                            <button id="btnNextLvl" class="btnNextLvlStyle btnsStyle">Next Level</button>
-                            <button id="btnHome" class="btnHomeStyle btnsStyle">Home</button>
-                        </section>
-                        <section id="sectImpressum" class="wrprImpressum">
-                            <button class="btnsStyle btnImpessum"><a href="html/impressum.html" target="_blank">Impressum</a></button>
-                        </section>
-                        <!-- btns mobile -->
-                        <section id="mobileBtns" class="mobileBtnsStyle hide">
-                            <div class="btnSect">
-                                <button id="btnLeft" class="btnLeftStyle btnsStyle">
-                                    <img src="./img/buttons/mobile-btn-left.png" alt="Button left" />
-                                </button>
-                                <button id="btnRight" class="btnRightStyle btnsStyle">
-                                    <img src="./img/buttons/mobile-btn-right.png" alt="Button right" />
-                                </button>
-                            </div>
-                            <div class="btnSect">
-                                <button id="btnJump" class="btnJumpStyle btnsStyle">
-                                    <img src="./img/buttons/mobile-btn-jump.png" alt="button jump" />
-                                </button>
-                                <button id="btnThrow" class="btnThrowStyle btnsStyle">
-                                    <img src="./img/buttons/mobile-btn-acorn.png" alt="button throw" />
-                                </button>
-                            </div>
-                        </section>
-                    </div>
-                </section>
-            </div>
-            <!-- dialog game info -->
-            <dialog id="gameInfo" closedby="any">
-                <div class="wrprDialog">
-                    <div class="padding-wrapper">
-                        <div class="info-content">
-                            <section id="wrprBtnClose">
-                                <button id="btnClose"><img src="./img/buttons/btn-close.png" alt="button close dialog"></button>
-                            </section>
-                            <section>
-                                <h2>How to play:</h2>
-                                <p>
-                                    Collect acorns throughout the level. <br />
-                                    You can throw acorns at mushrooms to defeat them. Mushrooms can also be defeated by jumping on them. <br />
-                                    Be careful not to waste all your acorns — you will need them later to defeat the final boss. The boss can only
-                                    be defeated by throwing acorns at him.
-                                </p>
-                            </section>
-                            <section id="infoControls">
-                                <h2>Controls:</h2>
-                                <div class="key-controls">
-                                    <div>
-                                        <img src="./img/icons/key-up.png" alt="icon keyboard key arrow up">
-                                        <p>Jump</p>
-                                    </div>
-                                    <div>
-                                        <img src="./img/icons/key-left.png" alt="icon keyboard key arrow left">
-                                        <p>Left</p>
-                                    </div>
-                                    <div>
-                                        <img src="./img/icons/key-right.png" alt="icon keyboard key arrow right">
-                                        <p>Right</p>
-                                    </div>
-                                    <div>
-                                        <img src="./img/icons/key-d.png" alt="icon keyboard key D">
-                                        <p>Throw</p>
-                                    </div>
-                                </div>
-                            </section>
-                        </div>
-                    </div>
-                </div>
-            </dialog>
-        </main>
-    </body>
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="shortcut icon" href="./img/favicon.png" type="image/x-icon" />
+		<link rel="icon" href="./img/favicon.png" type="image/x-icon" />
+		<link rel="stylesheet" href="./style.css" />
+		<script type="module" src="./javaScript/game.js"></script>
+		<title>Lumenwood</title>
+	</head>
+	<body>
+		<main>
+			<h1 id="header" class="hide">LUMENWOOD</h1>
+			<p id="rotateMessage" class="hide">Please rotate your device to play.</p>
+			<div id="wrprCanvas" class="wrprCanvasStyle hide">
+				<!-- canvas -->
+				<canvas id="canvas" width="720" height="480"></canvas>
+				<!-- overlay -->
+				<section id="overlay" class="overlayStyle">
+					<!-- btns top -->
+					<div id="btnsTop" class="btnsTopStyle">
+						<div id="wrprTopBtns">
+							<button id="btnInfo" class="btnsStyle btnInfoStyle">Info</button>
+							<div class="levelStyle">
+								<p id="level"></p>
+							</div>
+							<button id="btnMute" class="btnMuteStyle btnsStyle soundMuted"></button>
+						</div>
+						<div id="btnStartWrpr" class="btnStartWrprStyle">
+							<button id="btnStartGame" class="btnStartGameStyle btnsStyle">Start Game</button>
+						</div>
+					</div>
+					<!-- btns bottom -->
+					<div id="btnsBottom" class="btnsBottomStyle">
+						<section id="btnsPostGame" class="btnsPostGameStyle hide">
+							<button id="btnRestart" class="btnRestartStyle btnsStyle">Restart</button>
+							<button id="btnNextLvl" class="btnNextLvlStyle btnsStyle">Next Level</button>
+							<button id="btnHome" class="btnHomeStyle btnsStyle">Home</button>
+						</section>
+						<section id="sectImpressum" class="wrprImpressum">
+							<button class="btnsStyle btnImpessum"><a href="html/impressum.html" target="_blank">Impressum</a></button>
+						</section>
+						<!-- btns mobile -->
+						<section id="mobileBtns" class="mobileBtnsStyle hide">
+							<div class="btnSect">
+								<button id="btnLeft" class="btnLeftStyle btnsStyle">
+									<img src="./img/buttons/mobile-btn-left.png" alt="Button left" />
+								</button>
+								<button id="btnRight" class="btnRightStyle btnsStyle">
+									<img src="./img/buttons/mobile-btn-right.png" alt="Button right" />
+								</button>
+							</div>
+							<div class="btnSect">
+								<button id="btnJump" class="btnJumpStyle btnsStyle">
+									<img src="./img/buttons/mobile-btn-jump.png" alt="button jump" />
+								</button>
+								<button id="btnThrow" class="btnThrowStyle btnsStyle">
+									<img src="./img/buttons/mobile-btn-acorn.png" alt="button throw" />
+								</button>
+							</div>
+						</section>
+					</div>
+				</section>
+			</div>
+			<!-- dialog game info -->
+			<dialog id="gameInfo" closedby="any">
+				<div class="wrprDialog">
+					<div class="padding-wrapper">
+						<div class="info-content">
+							<section id="wrprBtnClose">
+								<button id="btnClose"><img src="./img/buttons/btn-close.png" alt="button close dialog" /></button>
+							</section>
+							<section>
+								<h2>How to play:</h2>
+								<p>
+									Collect acorns throughout the level. <br />
+									You can throw acorns at mushrooms to defeat them. Mushrooms can also be defeated by jumping on them. <br />
+									Be careful not to waste all your acorns — you will need them later to defeat the final boss. The boss can only be defeated
+									by throwing acorns at him.
+								</p>
+							</section>
+							<section id="infoControls">
+								<h2>Controls:</h2>
+								<div class="key-controls">
+									<div>
+										<img src="./img/icons/key-up.png" alt="icon keyboard key arrow up" />
+										<p>Jump</p>
+									</div>
+									<div>
+										<img src="./img/icons/key-left.png" alt="icon keyboard key arrow left" />
+										<p>Left</p>
+									</div>
+									<div>
+										<img src="./img/icons/key-right.png" alt="icon keyboard key arrow right" />
+										<p>Right</p>
+									</div>
+									<div>
+										<img src="./img/icons/key-d.png" alt="icon keyboard key D" />
+										<p>Throw</p>
+									</div>
+								</div>
+							</section>
+						</div>
+					</div>
+				</div>
+			</dialog>
+		</main>
+	</body>
 </html>

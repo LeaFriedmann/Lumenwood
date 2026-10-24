@@ -1,36 +1,36 @@
 {
-    "source": {
-        "include": [
-            "./javaScript/manager/audio-hub.clas.js",
-            "./javaScript/manager/eventlistener.class.js",
-            "./javaScript/manager/imgHub.class.js",
-            "./javaScript/manager/intervalHub.class.js",
-            "./javaScript/manager/keyboard.class.js",
-            "./javaScript/manager/ref.class.js",
-            "./javaScript/manager/render.class.js",
-            "./javaScript/manager/template.class.js",
-            "./javaScript/models/background-object.class.js",
-            "./javaScript/models/character.class.js",
-            "./javaScript/models/mushroom.class.js",
-            "./javaScript/models/cloud.class.js",
-            "./javaScript/models/firefly.class.js",
-            "./javaScript/models/collectable-acorn.class.js",
-            "./javaScript/models/collectable-object.class.js",
-            "./javaScript/models/drawable-objects.class.js",
-            "./javaScript/models/endboss.class.js",
-            "./javaScript/models/entity.class.js",
-            "./javaScript/models/game-state.class.js",
-            "./javaScript/models/level.class.js",
-            "./javaScript/models/movable-object.class.js",
-            "./javaScript/models/normal-mushroom.class.js",
-            "./javaScript/models/small-mushroom.class.js",
-            "./javaScript/models/status-bar.class.js",
-            "./javaScript/models/throwable-object.class.js",
-            "./javaScript/models/world.class.js",
-            "./javaScript/game.js"
-        ]
-    },
-    "opts": {
-        "destination": "./out"
-    }
+	"source": {
+		"include": [
+			"./javaScript/manager/audio-hub.clas.js",
+			"./javaScript/manager/eventlistener.class.js",
+			"./javaScript/manager/imgHub.class.js",
+			"./javaScript/manager/intervalHub.class.js",
+			"./javaScript/manager/keyboard.class.js",
+			"./javaScript/manager/ref.class.js",
+			"./javaScript/manager/render.class.js",
+			"./javaScript/manager/template.class.js",
+			"./javaScript/models/background-object.class.js",
+			"./javaScript/models/character.class.js",
+			"./javaScript/models/mushroom.class.js",
+			"./javaScript/models/cloud.class.js",
+			"./javaScript/models/firefly.class.js",
+			"./javaScript/models/collectable-acorn.class.js",
+			"./javaScript/models/collectable-object.class.js",
+			"./javaScript/models/drawable-objects.class.js",
+			"./javaScript/models/endboss.class.js",
+			"./javaScript/models/entity.class.js",
+			"./javaScript/models/game-state.class.js",
+			"./javaScript/models/level.class.js",
+			"./javaScript/models/movable-object.class.js",
+			"./javaScript/models/normal-mushroom.class.js",
+			"./javaScript/models/small-mushroom.class.js",
+			"./javaScript/models/status-bar.class.js",
+			"./javaScript/models/throwable-object.class.js",
+			"./javaScript/models/world.class.js",
+			"./javaScript/game.js"
+		]
+	},
+	"opts": {
+		"destination": "./out"
+	}
 }
