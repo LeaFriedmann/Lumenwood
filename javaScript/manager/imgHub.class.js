@@ -135,10 +135,10 @@ export class ImgHub {
 	};
 
 	static BACKGROUND = {
-		CLOUDS: ["./img/5_background/layers/4_clouds/1.png", "./img/5_background/layers/4_clouds/2.png"],
+		CLOUDS: ["./img/background/clouds/1.png", "./img/background/clouds/2.png"],
 		START: [
 			"./img/background/start/background-1.png",
-			"./img/background/back-2.jpg",
+			"./img/background/start/background-2.png",
 			"./img/background/start/background-3.png",
 			"./img/background/start/background-4.png",
 			"./img/background/start/background-5.png",
