@@ -1,3 +1,4 @@
+import { ImgHub } from "../manager/imgHub.class.js";
 import { MovableObject } from "./movable-object.class.js";
 
 /**
@@ -5,23 +6,27 @@ import { MovableObject } from "./movable-object.class.js";
  * Extends MovableObject to support positioning and rendering in the game world.
  */
 export class BackgroundObject extends MovableObject {
-    //#region properties
-    static xPos = -719;
-    static turn = 0;
-    //#endregion
+	//#region properties
+	static xPos = -719;
+	static BACKGROUND_COUNTER = 0;
+	static EXTENSION_TURN = 0;
+	//#endregion
 
-    /**
-     * Creates a new BackgroundObject instance and positions it in the background sequence.
-     * @param {string} imagePath - The path to the image used for this background segment.
-     */
-    constructor(imagePath) {
-        if (BackgroundObject.turn == 4) {
-            BackgroundObject.xPos += 719;
-            BackgroundObject.turn = 0;
-        }
+	/**
+	 * Creates a new BackgroundObject instance and positions it in the background sequence.
+	 * @param {string} imagePath - The path to the image used for this background segment.
+	 */
+	constructor(imagePath) {
+		super(BackgroundObject.xPos, 0, 480, 720, 0);
+		this.loadImage(imagePath);
+		BackgroundObject.xPos += 719;
+		BackgroundObject.BACKGROUND_COUNTER++;
 
-        super(BackgroundObject.xPos, 0, 480, 720, 0);
-        this.loadImage(imagePath);
-        BackgroundObject.turn++;
-    }
+		if (
+			BackgroundObject.BACKGROUND_COUNTER == ImgHub.BACKGROUND.START.length + ImgHub.BACKGROUND.EXTENSION.length ||
+			(BackgroundObject.EXTENSION_TURN > 0 && (BackgroundObject.BACKGROUND_COUNTER - ImgHub.BACKGROUND.START.length) % 6 == 0)
+		) {
+			BackgroundObject.EXTENSION_TURN++;
+		}
+	}
 }
