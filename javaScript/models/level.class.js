@@ -1,6 +1,5 @@
 import { ImgHub } from "../manager/imgHub.class.js";
 import { BackgroundObject } from "./background-object.class.js";
-import { Chicken } from "./chicken.class.js";
 import { Cloud } from "./cloud.class.js";
 import { Coin } from "./coin.class.js";
 import { CollectableBottle } from "./collectable-bottle.class.js";
@@ -199,22 +198,16 @@ export class Level {
     addEnemies() {
         for (let i = 0; i < this.levelConfig.repetition.smallChicken; i++) {
             Level.enemies.push(this.createSmallChicken());
-            // console.log(i);
-            
         }
         
         for (let i = 0; i < this.levelConfig.repetition.chicken; i++) {
-            Level.enemies.push(this.createChicken());
-            // console.log(i);
-            
+            Level.enemies.push(this.createChicken()); 
         }
 
         const endboss = new Endboss(Level.END_X, this.levelConfig.speed.endboss, this.levelConfig.healthReduction.endboss);
 
         Level.endboss = endboss;
-        Level.enemies.push(endboss);
-        // console.log(Level.enemies.length);
-        
+        Level.enemies.push(endboss);        
     }
 
     /**
