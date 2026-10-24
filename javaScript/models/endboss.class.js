@@ -1,11 +1,8 @@
 import { AudioHub } from "../manager/audio-hub.clas.js";
 import { ImgHub } from "../manager/imgHub.class.js";
 import { IntervalHub } from "../manager/intervalHub.class.js";
-import { Ref } from "../manager/ref.class.js";
-import { BackgroundObject } from "./background-object.class.js";
 import { Entity } from "./entity.class.js";
 import { GameState } from "./game-state.class.js";
-import { Level } from "./level.class.js";
 
 /**
  * Represents the endboss enemy
