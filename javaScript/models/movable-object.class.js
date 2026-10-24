@@ -1,6 +1,3 @@
-import { ImgHub } from "../manager/imgHub.class.js";
-import { IntervalHub } from "../manager/intervalHub.class.js";
-import { Keyboard } from "../manager/keyboard.class.js";
 import { DrawableObject } from "./drawable-objects.class.js";
 
 /**
