@@ -1,7 +1,6 @@
 import { world } from "../game.js";
 import { AudioHub } from "../manager/audio-hub.clas.js";
 import { ImgHub } from "../manager/imgHub.class.js";
-import { IntervalHub } from "../manager/intervalHub.class.js";
 import { Ref } from "../manager/ref.class.js";
 import { Render } from "../manager/render.class.js";
 import { BackgroundObject } from "./background-object.class.js";
