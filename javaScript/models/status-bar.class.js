@@ -1,4 +1,3 @@
-import { ImgHub } from "../manager/imgHub.class.js";
 import { DrawableObject } from "./drawable-objects.class.js";
 
 /**
