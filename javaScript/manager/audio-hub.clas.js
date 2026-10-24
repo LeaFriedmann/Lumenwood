@@ -126,8 +126,7 @@ export class AudioHub {
      */
     static stopAll() {
         AudioHub.allSounds.forEach((sound) => {
-            sound.file.pause();
-            sound.isPlaying = false;
+            this.stopOne(sound);
         });
     }
 
