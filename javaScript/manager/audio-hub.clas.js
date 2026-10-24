@@ -38,14 +38,14 @@ export class AudioHub {
         SNORING: new MyAudio("./sounds/character/fox-sleep.mp3", 1, 0.7, true),
     };
 
-    static CHICKEN = {
-        DEAD: new MyAudio("./sounds/chicken/mushroom-dead.mp3", 1, 0.05),
-        DEAD2: new MyAudio("./sounds/chicken/mushroom-dead-3.mp3", 1, -0.1),
+    static MUSHROOM = {
+        DEAD: new MyAudio("./sounds/mushroom/mushroom-dead.mp3", 1, 0.05),
+        DEAD2: new MyAudio("./sounds/mushroom/mushroom-dead-3.mp3", 1, -0.1),
     };
 
     static COLLECT = {
-        BOTTLE: new MyAudio("./sounds/collectibles/acorn-collect.opus", 1, 0),
-        COIN: new MyAudio("./sounds/collectibles/firefly-collect.opus", 1, 0),
+        ACORN: new MyAudio("./sounds/collectibles/acorn-collect.opus", 1, 0),
+        FIREFLY: new MyAudio("./sounds/collectibles/firefly-collect.opus", 1, 0),
     };
 
     static ENDBOSS_APPROACH = new MyAudio("./sounds/endboss/endboss-alert.opus", 1, 0.8);
@@ -54,7 +54,7 @@ export class AudioHub {
     static ENDBOSS_DEAD = new MyAudio("./sounds/endboss/endboss-dead.mp3", 1, 0);
     static ENDBOSS_ATTACK = new MyAudio("./sounds/endboss/endboss-attack.mp3", 1.2, 0);
 
-    static BOTTLE_BREAK = new MyAudio("./sounds/throwable/acorn-explode.opus", 1, 0);
+    static ACORN_BREAK = new MyAudio("./sounds/throwable/acorn-explode.opus", 1, 0);
     static THROW = new MyAudio("./sounds/throwable/throw.opus", 1, 0);
 
     static GAME_START = new MyAudio("./sounds/game/game-start.opus", 1, 0);
@@ -69,11 +69,11 @@ export class AudioHub {
         AudioHub.CHARACTER.RUN,
         AudioHub.CHARACTER.SNORING,
 
-        AudioHub.CHICKEN.DEAD,
-        AudioHub.CHICKEN.DEAD2,
+        AudioHub.MUSHROOM.DEAD,
+        AudioHub.MUSHROOM.DEAD2,
 
-        AudioHub.COLLECT.COIN,
-        AudioHub.COLLECT.BOTTLE,
+        AudioHub.COLLECT.FIREFLY,
+        AudioHub.COLLECT.ACORN,
 
         AudioHub.ENDBOSS_APPROACH,
         AudioHub.ENDBOSS_WALK,
@@ -82,7 +82,7 @@ export class AudioHub {
         AudioHub.ENDBOSS_ATTACK,
 
         AudioHub.THROW,
-        AudioHub.BOTTLE_BREAK,
+        AudioHub.ACORN_BREAK,
 
         AudioHub.GAME_START,
         this.BACKGROUND_MUSIC,

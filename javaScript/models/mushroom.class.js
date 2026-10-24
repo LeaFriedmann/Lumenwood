@@ -5,11 +5,11 @@ import { Entity } from "./entity.class.js";
 import { Level } from "./level.class.js";
 
 /**
- * Represents a chicken enemy entity in the game.
+ * Represents a mushroom enemy entity in the game.
  * Handles movement, animation, and death behavior including sound playback and removal.
  * Extends Entity.
  */
-export class Chicken extends Entity {
+export class Mushroom extends Entity {
     //#region properties
     audioPlayed = false;
     mumbelingAudio;
@@ -17,11 +17,11 @@ export class Chicken extends Entity {
     //#endregion
 
     /**
-     * Creates a new Chicken enemy instance and starts its animation and movement loops.
+     * Creates a new Mushroom enemy instance and starts its animation and movement loops.
      * @param {number} x_ - X position.
      * @param {number} y_ - Y position.
-     * @param {number} width_ - Width of the chicken.
-     * @param {number} height_ - Height of the chicken.
+     * @param {number} width_ - Width of the mushroom.
+     * @param {number} height_ - Height of the mushroom.
      * @param {number} speed_ - Movement speed.
      * @param {string[]} animationWalk_ - Walking animation frames.
      * @param {string[]} animationDead_ - Death animation frames.
@@ -53,7 +53,7 @@ export class Chicken extends Entity {
     };
 
     /**
-     * Moves the chicken to the left if it is still alive.
+     * Moves the mushroom to the left if it is still alive.
      */
     move = () => {
         if (!this.isDead()) {

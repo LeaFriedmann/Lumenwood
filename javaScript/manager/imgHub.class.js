@@ -2,7 +2,7 @@
  * Provides a centralized registry of all image asset paths used in the game.
  */
 export class ImgHub {
-    static PEPE = {
+    static FOX = {
         IDLE: [
             "./img/character-fox/idle/idle 1.png",
             "./img/character-fox/idle/idle 2.png",
@@ -68,14 +68,14 @@ export class ImgHub {
     };
 
     static ENEMIES = {
-        CHICKEN_NORMAL: {
+        MUSHROOM_NORMAL: {
             WALK: [
                 "./img/enemies_mushrooms/walk-2/mushroom-walk-1.png",
                 "./img/enemies_mushrooms/walk-2/mushroom-walk-2.png",
             ],
             DEAD: ["./img/enemies_mushrooms/dead-2/dead 1.png", "./img/enemies_mushrooms/dead-2/dead 2.png", "./img/enemies_mushrooms/dead-2/dead 1.png", "./img/enemies_mushrooms/dead-2/dead 2.png", "./img/enemies_mushrooms/dead-2/dead 1.png", "./img/enemies_mushrooms/dead-2/dead 2.png"],
         },
-        CHICKEN_SMALL: {
+        MUSHROOM_SMALL: {
             WALK: [
                 "./img/enemies_mushrooms/walk/mushroom-walk-1.png",
                 "./img/enemies_mushrooms/walk/mushroom-walk-2.png",
@@ -163,14 +163,14 @@ export class ImgHub {
         ],
     };
 
-    static BOTTLE = {
+    static ACORN = {
         ROTATION: [
             "./img/acorn/rotation/rotate 1.png",
             "./img/acorn/rotation/rotate 2.png",
             "./img/acorn/rotation/rotate 3.png",
             "./img/acorn/rotation/rotate 4.png",
         ],
-        SPLASH: [
+        EXPLOSION: [
             "./img/acorn/explosion/explode 1.png",
             "./img/acorn/explosion/explode 2.png",
             "./img/acorn/explosion/explode 3.png",
@@ -179,11 +179,10 @@ export class ImgHub {
             "./img/acorn/explosion/explode 6.png",
         ],
         ON_GROUND: ["./img/acorn/acorn.png"],
-        NORMAL: ["./img/6_salsa_bottle/salsa_bottle.png"],
     };
 
     static STATUSBAR = {
-        COIN: [
+        FIREFLY: [
             "./img/7_statusbars/statusbar_firefly/statusbar-firefly-00.png",
             "./img/7_statusbars/statusbar_firefly/statusbar-firefly-10.png",
             "./img/7_statusbars/statusbar_firefly/statusbar-firefly-20.png",
@@ -209,7 +208,7 @@ export class ImgHub {
             "./img/7_statusbars/statusbar_fox/statusbar-fox-90.png",
             "./img/7_statusbars/statusbar_fox/statusbar-fox-100.png",
         ],
-        BOTTLE: [
+        ACORN: [
             "./img/7_statusbars/statusbar_acorn/statusbar-acorn-00.png",
             "./img/7_statusbars/statusbar_acorn/statusbar-acorn-10.png",
             "./img/7_statusbars/statusbar_acorn/statusbar-acorn-20.png",
@@ -238,7 +237,7 @@ export class ImgHub {
         ],
     };
 
-    static COIN = [
+    static FIREFLY = [
         "./img/firefly/firefly 1.png",
         "./img/firefly/firefly 2.png",
         "./img/firefly/firefly 3.png",

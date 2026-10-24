@@ -1,12 +1,12 @@
 import { ImgHub } from "../manager/imgHub.class.js";
 import { BackgroundObject } from "./background-object.class.js";
 import { Cloud } from "./cloud.class.js";
-import { Coin } from "./coin.class.js";
-import { CollectableBottle } from "./collectable-bottle.class.js";
+import { Firefly } from "./firefly.class.js";
+import { CollectableAcorn } from "./collectable-acorn.class.js";
 import { CollectableObject } from "./collectable-object.class.js";
 import { Endboss } from "./endboss.class.js";
-import { NormalChicken } from "./normal-chicken.class.js";
-import { SmallChicken } from "./small-chicken.class.js";
+import { NormalMushroom } from "./normal-mushroom.class.js";
+import { SmallMushroom } from "./small-mushroom.class.js";
 
 /**
  * Represents a game level configuration including enemies, collectibles, and environment objects.
@@ -19,20 +19,20 @@ export class Level {
      */
     levelConfig = {
         repetition: {
-            chicken: 0,
-            smallChicken: 0,
+            mushroom: 0,
+            smallMushroom: 0,
             background: 0,
             clouds: 0,
-            coins: 10,
-            collectableBottle: 10,
+            fireflys: 10,
+            collectableAcorn: 10,
         },
         health: {
-            chicken: 0,
+            mushroom: 0,
             character: 0,
         },
         speed: {
-            chicken: 0,
-            smallChicken: 0,
+            mushroom: 0,
+            smallMushroom: 0,
             endboss: 0,
         },
         healthReduction: {
@@ -74,16 +74,16 @@ export class Level {
      */
     setLevelConfig() {
 
-        this.levelConfig.repetition.chicken = Level.currentLevel + 4;
-        this.levelConfig.repetition.smallChicken = Level.currentLevel + 5;
+        this.levelConfig.repetition.mushroom = Level.currentLevel + 4;
+        this.levelConfig.repetition.smallMushroom = Level.currentLevel + 5;
         this.levelConfig.repetition.background = this.getBackgrRepeat(Level.currentLevel);
         this.levelConfig.repetition.clouds = 6;
 
-        this.levelConfig.health.chicken = 20;
+        this.levelConfig.health.mushroom = 20;
         this.levelConfig.health.character = Level.currentLevel + 100;
 
-        this.levelConfig.speed.chicken = Level.currentLevel / 10 + Math.random() * Level.currentLevel;
-        this.levelConfig.speed.smallChicken = Level.currentLevel / 5 + Math.random() * Level.currentLevel;
+        this.levelConfig.speed.mushroom = Level.currentLevel / 10 + Math.random() * Level.currentLevel;
+        this.levelConfig.speed.smallMushroom = Level.currentLevel / 5 + Math.random() * Level.currentLevel;
         this.levelConfig.speed.endboss = this.speedEndboss();
 
         this.levelConfig.healthReduction.endboss = this.healthReductEndboss(Level.currentLevel);
@@ -193,15 +193,15 @@ export class Level {
     }
 
     /**
-     * Creates and adds all enemy objects including chickens and the endboss.
+     * Creates and adds all enemy objects including mushrooms and the endboss.
      */
     addEnemies() {
-        for (let i = 0; i < this.levelConfig.repetition.smallChicken; i++) {
-            Level.enemies.push(this.createSmallChicken());
+        for (let i = 0; i < this.levelConfig.repetition.smallMushroom; i++) {
+            Level.enemies.push(this.createSmallMushroom());
         }
         
-        for (let i = 0; i < this.levelConfig.repetition.chicken; i++) {
-            Level.enemies.push(this.createChicken()); 
+        for (let i = 0; i < this.levelConfig.repetition.mushroom; i++) {
+            Level.enemies.push(this.createMushroom()); 
         }
 
         const endboss = new Endboss(Level.END_X, this.levelConfig.speed.endboss, this.levelConfig.healthReduction.endboss);
@@ -211,19 +211,19 @@ export class Level {
     }
 
     /**
-     * Creates a normal chicken enemy instance.
-     * @returns {NormalChicken} Chicken instance.
+     * Creates a normal mushroom enemy instance.
+     * @returns {NormalMushroom} Mushroom instance.
      */
-    createChicken() {
-        return new NormalChicken(300 + Math.random() * Level.END_X, this.levelConfig.speed.chicken);
+    createMushroom() {
+        return new NormalMushroom(300 + Math.random() * Level.END_X, this.levelConfig.speed.mushroom);
     }
 
     /**
-     * Creates a small chicken enemy instance.
-     * @returns {SmallChicken} Small chicken instance.
+     * Creates a small mushroom enemy instance.
+     * @returns {SmallMushroom} Small mushroom instance.
      */
-    createSmallChicken() {
-        return new SmallChicken(300 + Math.random() * Level.END_X, this.levelConfig.speed.smallChicken);
+    createSmallMushroom() {
+        return new SmallMushroom(300 + Math.random() * Level.END_X, this.levelConfig.speed.smallMushroom);
     }
 
     /**
@@ -244,60 +244,60 @@ export class Level {
     }
 
     /**
-     * Creates and adds all coin and bottle collectibles.
+     * Creates and adds all firefly and acorn collectibles.
      */
     addCollectables() {
-        this.addCoins();
-        this.addBottles();
+        this.addFireflys();
+        this.addAcorns();
     }
 
     /**
-     * Creates and distributes coin collectibles across the level.
+     * Creates and distributes firefly collectibles across the level.
      */
-    addCoins() {
-        Coin.gap = (Level.END_X - 400) / this.levelConfig.repetition.coins;
+    addFireflys() {
+        Firefly.gap = (Level.END_X - 400) / this.levelConfig.repetition.fireflys;
 
-        for (let index = 0; index < this.levelConfig.repetition.coins; index++) {
-            CollectableObject.arrAll.push(this.coin());
+        for (let index = 0; index < this.levelConfig.repetition.fireflys; index++) {
+            CollectableObject.arrAll.push(this.firefly());
         }
     }
 
     /**
-     * Creates and distributes bottle collectibles across the level.
+     * Creates and distributes acorn collectibles across the level.
      */
-    addBottles() {
-        CollectableBottle.gap = (Level.END_X - 400) / this.levelConfig.repetition.collectableBottle;
+    addAcorns() {
+        CollectableAcorn.gap = (Level.END_X - 400) / this.levelConfig.repetition.collectableAcorn;
 
-        for (let index = 0; index < this.levelConfig.repetition.collectableBottle; index++) {
-            CollectableObject.arrAll.push(this.bottle());
+        for (let index = 0; index < this.levelConfig.repetition.collectableAcorn; index++) {
+            CollectableObject.arrAll.push(this.acorn());
         }
     }
 
     /**
-     * Respawns bottles after all are used.
+     * Respawns acorns after all are used.
      */
-    static bottleRespawn() {
-        CollectableBottle.gap = (Level.END_X - 400) / 10;
+    static acornRespawn() {
+        CollectableAcorn.gap = (Level.END_X - 400) / 10;
 
         for (let index = 0; index < 10; index++) {
-            CollectableObject.arrAll.push(new CollectableBottle());
+            CollectableObject.arrAll.push(new CollectableAcorn());
         }
     }
 
     /**
-     * Creates a bottle collectible.
-     * @returns {CollectableBottle} Bottle instance.
+     * Creates a acorn collectible.
+     * @returns {CollectableAcorn} Acorn instance.
      */
-    bottle() {
-        return new CollectableBottle();
+    acorn() {
+        return new CollectableAcorn();
     }
 
     /**
-     * Creates a coin collectible.
-     * @returns {Coin} Coin instance.
+     * Creates a firefly collectible.
+     * @returns {Firefly} Firefly instance.
      */
-    coin() {
-        return new Coin();
+    firefly() {
+        return new Firefly();
     }
 
     //#endregion

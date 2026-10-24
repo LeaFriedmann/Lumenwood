@@ -6,8 +6,8 @@ import { Ref } from "../manager/ref.class.js";
 import { Render } from "../manager/render.class.js";
 import { BackgroundObject } from "./background-object.class.js";
 import { Cloud } from "./cloud.class.js";
-import { Coin } from "./coin.class.js";
-import { CollectableBottle } from "./collectable-bottle.class.js";
+import { Firefly } from "./firefly.class.js";
+import { CollectableAcorn } from "./collectable-acorn.class.js";
 import { CollectableObject } from "./collectable-object.class.js";
 import { DrawableObject } from "./drawable-objects.class.js";
 import { Endboss } from "./endboss.class.js";
@@ -72,14 +72,14 @@ export class GameState extends DrawableObject {
 
         Cloud.xPos = 0;
 
-        Coin.collected = 0;
-        CollectableBottle.collected = 0;
+        Firefly.collected = 0;
+        CollectableAcorn.collected = 0;
 
-        Coin.gap = 0;
-        CollectableBottle.gap = 0;
+        Firefly.gap = 0;
+        CollectableAcorn.gap = 0;
 
-        Coin.xPos = 300;
-        CollectableBottle.xPos = 300;
+        Firefly.xPos = 300;
+        CollectableAcorn.xPos = 300;
 
         Endboss.isAlert = false;
         Endboss.startWalking = false;
@@ -92,7 +92,7 @@ export class GameState extends DrawableObject {
         Level.ThrowableObjects = [];
 
         CollectableObject.arrAll = [];
-        CollectableBottle.availableBottles = 0;
+        CollectableAcorn.availableAcorns = 0;
 
         World.CAMERA_X = 0;
 

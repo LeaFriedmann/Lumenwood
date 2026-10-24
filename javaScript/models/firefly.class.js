@@ -7,7 +7,7 @@ import { CollectableObject } from "./collectable-object.class.js";
  * Handles animation and positioning of coin collectibles.
  * Extends CollectableObject.
  */
-export class Coin extends CollectableObject {
+export class Firefly extends CollectableObject {
     offset = {
         top: 10,
         right: 10,
@@ -16,11 +16,11 @@ export class Coin extends CollectableObject {
     };
 
     /**
-     * Creates a new Coin instance at a randomized position and starts its animation loop.
+     * Creates a new Firefly instance at a randomized position and starts its animation loop.
      */
     constructor() {
-        super(Coin.xPos + Math.random() * Coin.gap, 130 + Math.random() * 200, 50, 50, ImgHub.COIN);
-        Coin.xPos += Coin.gap;
+        super(Firefly.xPos + Math.random() * Firefly.gap, 130 + Math.random() * 200, 50, 50, ImgHub.FIREFLY);
+        Firefly.xPos += Firefly.gap;
         IntervalHub.startInterval(this.animate, 1000 / 60);
     }
 

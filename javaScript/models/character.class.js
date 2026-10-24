@@ -16,10 +16,10 @@ import { World } from "./world.class.js";
  */
 export class Character extends Entity {
     //#region properties
-    animationJump = ImgHub.PEPE.JUMP;
-    animationIdle = ImgHub.PEPE.IDLE;
-    animationSleep = ImgHub.PEPE.SLEEPING;
-    animationHurt = ImgHub.PEPE.HURT;
+    animationJump = ImgHub.FOX.JUMP;
+    animationIdle = ImgHub.FOX.IDLE;
+    animationSleep = ImgHub.FOX.SLEEPING;
+    animationHurt = ImgHub.FOX.HURT;
 
     offset = {
         top: 90,
@@ -36,7 +36,7 @@ export class Character extends Entity {
      * Creates a new Character instance and initializes animations and game loops.
      */
     constructor() {
-        super(120, 160, 242, 180, 10, 100, 10, ImgHub.PEPE.WALK, ImgHub.PEPE.DEAD);
+        super(120, 160, 242, 180, 10, 100, 10, ImgHub.FOX.WALK, ImgHub.FOX.DEAD);
 
         this.loadImages(this.animationJump);
         this.loadImages(this.animationHurt);

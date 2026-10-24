@@ -3,16 +3,15 @@ import { ImgHub } from "../manager/imgHub.class.js";
 import { IntervalHub } from "../manager/intervalHub.class.js";
 import { Keyboard } from "../manager/keyboard.class.js";
 import { Character } from "./character.class.js";
-import { Chicken } from "./chicken.class.js";
-import { Coin } from "./coin.class.js";
-import { CollectableBottle } from "./collectable-bottle.class.js";
+import { Firefly } from "./firefly.class.js";
+import { CollectableAcorn } from "./collectable-acorn.class.js";
 import { CollectableObject } from "./collectable-object.class.js";
 import { Endboss } from "./endboss.class.js";
 import { Entity } from "./entity.class.js";
 import { GameState } from "./game-state.class.js";
 import { Level } from "./level.class.js";
-import { NormalChicken } from "./normal-chicken.class.js";
-import { SmallChicken } from "./small-chicken.class.js";
+import { NormalMushroom } from "./normal-mushroom.class.js";
+import { SmallMushroom } from "./small-mushroom.class.js";
 import { StatusBar } from "./status-bar.class.js";
 import { ThrowableObject } from "./throwable-object.class.js";
 
@@ -30,8 +29,8 @@ export class World {
 
     statusbarHealth = new StatusBar(30, 0, ImgHub.STATUSBAR.HEALTH, 100);
     statusbarEndboss;
-    statusbarBottle = new StatusBar(30, 45, ImgHub.STATUSBAR.BOTTLE, 0);
-    statusbarCoin = new StatusBar(30, 90, ImgHub.STATUSBAR.COIN, 0);
+    statusbarAcorn = new StatusBar(30, 45, ImgHub.STATUSBAR.ACORN, 0);
+    statusbarFirefly = new StatusBar(30, 90, ImgHub.STATUSBAR.FIREFLY, 0);
 
     static CAMERA_X = 0;
     static level;
@@ -66,34 +65,34 @@ export class World {
     checkCollisions = () => {
         this.collisionTop();
         this.collisionCharacter();
-        this.collisionBottle();
+        this.collisionAcorn();
         this.checkCollecktables();
         this.startEnemyAudio();
     };
 
     /**
-     * Checks collisions between throwable bottles and enemies.
+     * Checks collisions between throwable acorns and enemies.
      */
-    collisionBottle() {
-        Level.ThrowableObjects.forEach((bottle) => {
-            this.collisionEnemies(bottle);
+    collisionAcorn() {
+        Level.ThrowableObjects.forEach((acorn) => {
+            this.collisionEnemies(acorn);
         });
     }
 
     /**
-     * Checks whether a bottle collides with enemies and applies damage.
+     * Checks whether a acorn collides with enemies and applies damage.
      *
-     * @param {ThrowableObject} bottle - The thrown bottle object.
+     * @param {ThrowableObject} acorn - The thrown acorn object.
      */
-    collisionEnemies(bottle) {
+    collisionEnemies(acorn) {
         Level.enemies.forEach((enemy) => {
-            if (bottle.isColliding(enemy)) {
+            if (acorn.isColliding(enemy)) {
                 if (enemy instanceof Endboss && !Endboss.startWalking) {
                     return;
                 }
-                if (!bottle.isDead()) {
+                if (!acorn.isDead()) {
                     enemy.hit();
-                    bottle.hit();
+                    acorn.hit();
 
                     if (enemy instanceof Endboss) {
                         this.statusbarEndboss.setPercentage(enemy.energy);
@@ -160,11 +159,11 @@ export class World {
      * @returns {boolean} True if the enemy can be defeated by jumping.
      */
     killableByJump(enemy) {
-        return enemy instanceof SmallChicken;
+        return enemy instanceof SmallMushroom;
     }
 
     notKillableByJump(enemy){
-        return enemy instanceof NormalChicken;
+        return enemy instanceof NormalMushroom;
     }
 
     /**
@@ -174,20 +173,20 @@ export class World {
     checkCollecktables() {
         CollectableObject.arrAll.forEach((collectable) => {
             if (this.character.isColliding(collectable)) {
-                if (collectable instanceof CollectableBottle) {
-                    AudioHub.playOne(AudioHub.COLLECT.BOTTLE);
+                if (collectable instanceof CollectableAcorn) {
+                    AudioHub.playOne(AudioHub.COLLECT.ACORN);
 
-                    CollectableBottle.collected++;
+                    CollectableAcorn.collected++;
                     collectable.removeCollectable();
 
-                    this.statusbarBottle.setPercentage(CollectableBottle.collected * 10);
+                    this.statusbarAcorn.setPercentage(CollectableAcorn.collected * 10);
                 } else {
-                    AudioHub.playOne(AudioHub.COLLECT.COIN);
+                    AudioHub.playOne(AudioHub.COLLECT.FIREFLY);
 
-                    Coin.collected++;
+                    Firefly.collected++;
                     collectable.removeCollectable();
 
-                    this.statusbarCoin.setPercentage(Coin.collected * 10);
+                    this.statusbarFirefly.setPercentage(Firefly.collected * 10);
                 }
             }
         });
@@ -196,30 +195,30 @@ export class World {
     //#endregion
 
     /**
-     * Checks whether the player can throw a bottle
+     * Checks whether the player can throw a acorn
      * and creates a throwable object if possible.
      */
     checkThrowObjects = () => {
-        if (Keyboard.D && this.bottleAvailable()) {
+        if (Keyboard.D && this.acornAvailable()) {
             if (this.character.otherDirection) {
                 this.addThrowableObject("left");
             } else {
                 this.addThrowableObject("right");
             }
             AudioHub.playOne(AudioHub.THROW);
-            CollectableBottle.collected--;
+            CollectableAcorn.collected--;
 
-            this.statusbarBottle.setPercentage(CollectableBottle.collected * 10);
+            this.statusbarAcorn.setPercentage(CollectableAcorn.collected * 10);
         }
     };
 
     /**
-     * Determines whether a throwable bottle is currently available.
+     * Determines whether a throwable acorn is currently available.
      *
-     * @returns {boolean} True if a bottle can be thrown.
+     * @returns {boolean} True if a acorn can be thrown.
      */
-    bottleAvailable() {
-        return Level.ThrowableObjects.length < 1 && CollectableBottle.collected > 0 && !Level.endboss.isDead();
+    acornAvailable() {
+        return Level.ThrowableObjects.length < 1 && CollectableAcorn.collected > 0 && !Level.endboss.isDead();
     }
 
     /**
@@ -277,8 +276,8 @@ export class World {
         this.ctx.translate(-World.CAMERA_X, 0);
 
         this.addToMap(this.statusbarHealth);
-        this.addToMap(this.statusbarBottle);
-        this.addToMap(this.statusbarCoin);
+        this.addToMap(this.statusbarAcorn);
+        this.addToMap(this.statusbarFirefly);
 
         if (this.statusbarEndboss) {
             this.addToMap(this.statusbarEndboss);
