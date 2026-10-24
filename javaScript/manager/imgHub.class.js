@@ -84,7 +84,6 @@ export class ImgHub {
         },
         ENDBOSS: {
             WALK: [
-                // "./img/endboss/walk/boss-walk-2.png",
                 "./img/endboss/walk/boss-walk-3.png",
                 "./img/endboss/walk/boss-walk-4.png",
                 "./img/endboss/walk/boss-walk-5.png",
@@ -128,21 +127,7 @@ export class ImgHub {
     };
 
     static BACKGROUND = {
-        FIRST_LAYER: ["./img/5_background/layers/1_first_layer/1.png", "./img/5_background/layers/1_first_layer/2.png"],
-        SECOND_LAYER: ["./img/5_background/layers/2_second_layer/1.png", "./img/5_background/layers/2_second_layer/2.png"],
-        THIRD_LAYER: ["./img/5_background/layers/3_third_layer/1.png", "./img/5_background/layers/3_third_layer/2.png"],
-        AIR: ["./img/5_background/layers/air.png"],
         CLOUDS: ["./img/5_background/layers/4_clouds/1.png", "./img/5_background/layers/4_clouds/2.png"],
-        ALL_LAYERS: [
-            "./img/5_background/layers/air.png",
-            "./img/5_background/layers/3_third_layer/2.png",
-            "./img/5_background/layers/2_second_layer/2.png",
-            "./img/5_background/layers/1_first_layer/2.png",
-            "./img/5_background/layers/air.png",
-            "./img/5_background/layers/3_third_layer/1.png",
-            "./img/5_background/layers/2_second_layer/1.png",
-            "./img/5_background/layers/1_first_layer/1.png",
-        ],
         START: [
             "./img/background/start/background-1.png",
             "./img/background/back-2.jpg",
