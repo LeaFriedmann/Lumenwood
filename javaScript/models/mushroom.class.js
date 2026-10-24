@@ -1,5 +1,4 @@
 import { AudioHub } from "../manager/audio-hub.clas.js";
-import { ImgHub } from "../manager/imgHub.class.js";
 import { IntervalHub } from "../manager/intervalHub.class.js";
 import { Entity } from "./entity.class.js";
 import { Level } from "./level.class.js";
