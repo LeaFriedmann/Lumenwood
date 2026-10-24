@@ -41,8 +41,6 @@ export class Level {
         },
     };
 
-    levelNumber;
-
     clouds = [];
     backgroundObjects = [];
 
@@ -58,8 +56,8 @@ export class Level {
      * Creates a Level instance and initializes all level objects.
      * @param {number} levelNumber_ - The number of the level to generate.
      */
-    constructor(levelNumber_) {
-        this.levelNumber = levelNumber_;
+    constructor() {
+        Level.getLevelLocalStorage();
         this.setLevelConfig();
         this.getLevelEnd();
         this.addBackground();
@@ -76,19 +74,21 @@ export class Level {
      * Initializes configuration values based on the current level number.
      */
     setLevelConfig() {
-        this.levelConfig.repetition.chicken = this.levelNumber + 4;
-        this.levelConfig.repetition.smallChicken = this.levelNumber + 5;
-        this.levelConfig.repetition.background = this.getBackgrRepeat(this.levelNumber);
+
+        this.levelConfig.repetition.chicken = Level.currentLevel + 4;
+        this.levelConfig.repetition.smallChicken = Level.currentLevel + 5;
+        this.levelConfig.repetition.background = this.getBackgrRepeat(Level.currentLevel);
         this.levelConfig.repetition.clouds = 6;
 
         this.levelConfig.health.chicken = 20;
-        this.levelConfig.health.character = this.levelNumber + 100;
+        this.levelConfig.health.character = Level.currentLevel + 100;
 
-        this.levelConfig.speed.chicken = this.levelNumber / 10 + Math.random() * this.levelNumber;
-        this.levelConfig.speed.smallChicken = this.levelNumber / 5 + Math.random() * this.levelNumber;
+        this.levelConfig.speed.chicken = Level.currentLevel / 10 + Math.random() * Level.currentLevel;
+        this.levelConfig.speed.smallChicken = Level.currentLevel / 5 + Math.random() * Level.currentLevel;
         this.levelConfig.speed.endboss = this.speedEndboss();
 
-        this.levelConfig.healthReduction.endboss = this.healthReductEndboss(this.levelNumber);
+        this.levelConfig.healthReduction.endboss = this.healthReductEndboss(Level.currentLevel);
+        
     }
 
     /**
@@ -131,7 +131,7 @@ export class Level {
      * @returns {number} Endboss speed.
      */
     speedEndboss() {
-        const calculated = this.levelNumber / 10 + Math.random() * this.levelNumber;
+        const calculated = Level.currentLevel / 10 + Math.random() * Level.currentLevel;
 
         if (calculated < 10) {
             return calculated;
@@ -147,6 +147,20 @@ export class Level {
         Level.END_X = this.levelConfig.repetition.background * 719 - 719 - 650;
     }
 
+    //#endregion
+
+    //#region local storage
+    static setLevelLocalStorage(){
+        localStorage.setItem('Level', Level.currentLevel);
+    }
+
+    static getLevelLocalStorage(){
+        const localLevel = Number(localStorage.getItem('Level'));
+
+        if (localLevel && localLevel != null) {
+            Level.currentLevel = localLevel;
+        }
+    }
     //#endregion
 
     //#region spawn objects
@@ -185,16 +199,22 @@ export class Level {
     addEnemies() {
         for (let i = 0; i < this.levelConfig.repetition.smallChicken; i++) {
             Level.enemies.push(this.createSmallChicken());
+            // console.log(i);
+            
         }
         
         for (let i = 0; i < this.levelConfig.repetition.chicken; i++) {
             Level.enemies.push(this.createChicken());
+            // console.log(i);
+            
         }
 
         const endboss = new Endboss(Level.END_X, this.levelConfig.speed.endboss, this.levelConfig.healthReduction.endboss);
 
         Level.endboss = endboss;
         Level.enemies.push(endboss);
+        // console.log(Level.enemies.length);
+        
     }
 
     /**

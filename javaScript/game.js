@@ -1,6 +1,7 @@
 import { AudioHub } from "./manager/audio-hub.clas.js";
 import { Listener } from "./manager/eventlistener.class.js";
 import { Render } from "./manager/render.class.js";
+import { Level } from "./models/level.class.js";
 
 export const world = [];
 
@@ -16,6 +17,7 @@ export class StartGame {
         Listener.checkDevice();
         Listener.checkOrientation();
         AudioHub.getFromLocl();
+        Level.getLevelLocalStorage();
         Render.currentLvl();
         Render.styleSoundBtn();
         Listener.clickKeyDown();

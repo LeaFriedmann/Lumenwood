@@ -128,6 +128,7 @@ export class GameState extends DrawableObject {
      */
     static nextLvl() {
         Level.currentLevel++;
+        Level.setLevelLocalStorage();
     }
 
     /**
@@ -144,7 +145,7 @@ export class GameState extends DrawableObject {
             AudioHub.playOne(AudioHub.BACKGROUND_MUSIC);
         }, 1000);
 
-        world.push(new World(Ref.canvas, new Level(Level.currentLevel)));
+        world.push(new World(Ref.canvas, new Level()));
 
         Render.currentLvl();
 
