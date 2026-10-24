@@ -22,7 +22,7 @@ export class Endboss extends Entity {
         top: 90,
         right: 220,
         bottom: 50,
-        left: 180,
+        left: 160,
     };
 
     static isAlert = false;

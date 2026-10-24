@@ -7,6 +7,13 @@ import { Chicken } from "./chicken.class.js";
  */
 export class SmallChicken extends Chicken {
 
+    offset = {
+        top: 12,
+        right: 4,
+        bottom: 1,
+        left: 4,
+    };
+
     mumbelingAudio = new MyAudio("./sounds/chicken/mushroom-mumbeling-2.mp3", 1, -0.12, true);
     deadAudio = AudioHub.CHICKEN.DEAD;
 
@@ -16,6 +23,6 @@ export class SmallChicken extends Chicken {
      * @param {number} speed_ - Movement speed of the chicken.
      */
     constructor(x_, speed_) {
-        super(x_, 372, 40, 50, speed_, ImgHub.ENEMIES.CHICKEN_SMALL.WALK, ImgHub.ENEMIES.CHICKEN_SMALL.DEAD);
+        super(x_, 375, 40, 50, speed_, ImgHub.ENEMIES.CHICKEN_SMALL.WALK, ImgHub.ENEMIES.CHICKEN_SMALL.DEAD);
     }
 }

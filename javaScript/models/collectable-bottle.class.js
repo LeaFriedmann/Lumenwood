@@ -21,7 +21,7 @@ export class CollectableBottle extends CollectableObject {
      * Increases the global bottle counter and updates the x-position for next instance.
      */
     constructor() {
-        super(CollectableBottle.xPos + Math.random() * CollectableBottle.gap, 387, 30, 30, ImgHub.BOTTLE.ON_GROUND);
+        super(CollectableBottle.xPos + Math.random() * CollectableBottle.gap, 390, 30, 30, ImgHub.BOTTLE.ON_GROUND);
         CollectableBottle.xPos += CollectableBottle.gap;
         CollectableBottle.availableBottles++;
     }

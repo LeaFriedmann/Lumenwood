@@ -11,12 +11,6 @@ import { Level } from "./level.class.js";
  */
 export class Chicken extends Entity {
     //#region properties
-    offset = {
-        top: 0,
-        right: 1,
-        bottom: 1,
-        left: 1,
-    };
     audioPlayed = false;
     mumbelingAudio;
     deadAudio;
