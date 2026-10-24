@@ -29,6 +29,7 @@ export class Character extends Entity {
     };
 
     idleCounter = 0;
+    groundY = 460 - this.height;
     //#endregion
 
     /**

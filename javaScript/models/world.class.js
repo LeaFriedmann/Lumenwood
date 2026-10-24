@@ -136,10 +136,21 @@ export class World {
      */
     collisionTop() {
         Level.enemies.forEach((enemy) => {
-            if (this.character.isColliding(enemy) && this.killableByJump(enemy) && this.character.jumpsDown()) {
-                enemy.hit();
-            }
+            if (this.jumpOnEnemy(enemy)) {
+                if (this.killableByJump(enemy)) {
+                    enemy.hit();                    
+                }
+                if (this.notKillableByJump(enemy) && !this.character.isHurt()) {
+                    this.character.hit();
+                    this.character.jump();
+                    this.statusbarHealth.setPercentage(this.character.energy);
+                }
+            } 
         });
+    }
+
+    jumpOnEnemy(enemy){
+        return this.character.isColliding(enemy) && this.character.jumpsDown();
     }
 
     /**
@@ -149,7 +160,11 @@ export class World {
      * @returns {boolean} True if the enemy can be defeated by jumping.
      */
     killableByJump(enemy) {
-        return enemy instanceof NormalChicken || enemy instanceof SmallChicken;
+        return enemy instanceof SmallChicken;
+    }
+
+    notKillableByJump(enemy){
+        return enemy instanceof NormalChicken;
     }
 
     /**

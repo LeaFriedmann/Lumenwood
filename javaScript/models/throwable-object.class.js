@@ -23,6 +23,7 @@ export class ThrowableObject extends Entity {
     };
 
     speedY = 27;
+    groundY = 440 - this.height;
     currentSplashImg = 0;
     throwDirection;
     audioPlayed;

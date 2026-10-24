@@ -10,6 +10,7 @@ export class Entity extends MovableObject {
 
     speedY = 0;
     acceleration = 2.5;
+    groundY;
     energy;
     healthReduction;
     lastHit = 0;
@@ -96,22 +97,25 @@ export class Entity extends MovableObject {
      * Applies gravity to the entity until it reaches the ground.
      */
     applyGravity = () => {
-        if ((this.isAboveGround() || this.speedY) > 0 && !this.isDead()) {
+
+        if ((this.isAboveGround() || this.speedY > 0) && !this.isDead()) {
             this.y -= this.speedY;
             this.speedY -= this.acceleration;
 
-            if (!this.isAboveGround()) {
+            if (this.y >= this.groundY) {
+                this.y = this.groundY;
                 this.speedY = 0;
             }
         }
     };
+
 
     /**
      * Checks whether the entity is above ground level.
      * @returns {boolean} True if entity is in the air.
      */
     isAboveGround() {
-        return this.y < 440 - this.height;
+        return this.y < this.groundY;
     }
 
     animationEnd(imgArr) {
