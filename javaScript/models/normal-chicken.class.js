@@ -7,6 +7,13 @@ import { Chicken } from "./chicken.class.js";
  */
 export class NormalChicken extends Chicken {
 
+    offset = {
+        top: 12,
+        right: 8,
+        bottom: 1,
+        left: 8,
+    };
+
     mumbelingAudio = new MyAudio("./sounds/chicken/mushroom-mumbeling-1.mp3", 1, -0.12, true);
     deadAudio = AudioHub.CHICKEN.DEAD2;
 
